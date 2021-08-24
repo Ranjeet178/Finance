@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title> Coursework </title>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container center" style="margin-top: 30px;">
+        <div class="row">
+            <div class="card">
+                <div class="card-body">
+                    <h1>Cloud Computing Coursework</h1>
+
+                    <!-- <form action="#" method="POST">
+                      
+                        Scalable Devices :
+                        <SELECT name="Services" id="aws">
+                          <OPTION value="Scalable_Devices">Select one Scalabel Device</OPTION>
+                          <OPTION value = "Lambda">Lambda</OPTION>
+                          <OPTION value = "EC2">EC2</OPTION>
+                      </SELECT>
+                        <br>
+                        <label for="resources">Resources (R) : </label>
+                        <input type="number" id="resources" name="resources" min="1" value="1"><br>
+                        <label for="shots">Shots : </label>
+                        <input type="number" id="shots" name="shots" min="1" value="1"><br>
+                        <label for="digits">Digits (D) : </label>
+                        <input type="number" id="digits" name="digits" min="1" value="1"><br>
+                        <label for="digits">Learning Rate (Q) : </label>
+                        <input type="number" id="learning_rate" name="learning_rate" min="1" value="1"><br>
+                        <button type="submit" value="Submit">Submit</button>
+                    </form> -->
+
+                    <form action="#" method="POST">
+                        <div class="form-group">
+                            <lable for="aws">Scalable Devices :</lable>
+                            <select class="form-select" name="Services" id="aws">
+                              <option selected>Select one Scalabel Device</option>
+                              <option value="Lambda">Lambda</option>
+                              <option value="EC2">EC2</option>
+                            </select>
+                            <label for="resources">Resources (R) : </label>
+                            <input type="number" id="resources" class="form-control" name="resources" min="1" value="1">
+                            <label for="MinHistory">MinHistory: </label>
+                            <input type="number" id="MinHistory" class="form-control" name="MinHistory" min="1" value="1">
+                            <label for="shots">Shots : </label>
+                            <input type="number" id="shots" name="shots" class="form-control" min="1" value="1">
+                            <lable for="aws">Scale :</lable>
+                            <select class="form-select" name="digits" id="aws">
+                              <option selected>Select one Scale</option>
+                              <option value="BUY">BUY</option>
+                              <option value="BUY">SELL</option>
+                            </select>
+                            <button class="btn btn-outline-secondary" type="submit" value="Submit">Submit</button>
+                        </div><br/>
+                        
+                    </form>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+</body>
+
+</html>

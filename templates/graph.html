@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html"
+      xmlns="http://www.w3.org/1999/html">
+  <head>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+    <script type="text/javascript">
+
+
+      var list_95 = '{{list_95}}'
+      var list_99 ='{{list_99}}'
+      var dates = '{{date}}'
+      var newDates = dates.replace()
+      console.log(dates)
+      // for(let i=0;i<dates.length;i++){
+      //   console.log(dates[i])
+      // }
+       let newListss = []
+      let newnum=''
+      var newList_95 = list_95.match(/\d+(?:\.\d+)?/g).map(Number)
+      var newList_99 = list_99.match(/\d+(?:\.\d+)?/g).map(Number)
+      var datess = dates.replace(/&#39;/g,'');
+      
+      console.log(datess)       
+      var newresult = []
+      
+      var list_head= ['Date','list_95', 'list_99'];
+      var valuess = []
+      valuess.push(list_head)
+      
+       for(var i=0;i<newList_95.length;i++){
+        let li95 = parseFloat(newList_95[i])
+        let li99 = parseFloat(newList_99[i]) 
+        var temp=[];
+        temp.push(datess[i])
+        temp.push(parseFloat(li95.toFixed(4)));
+        temp.push(parseFloat(li99.toFixed(4)));
+        valuess.push(temp);  
+         }
+    
+    google.charts.load('current', {'packages':['corechart']});
+    google.charts.setOnLoadCallback(drawChart);
+  function drawChart() {
+    var data = google.visualization.arrayToDataTable(valuess);
+    console.log('datas',data)
+      var options = {
+
+          title: '',
+
+
+        width: 900,
+        height: 500,
+        legend: { position: 'right' }
+      };  
+
+      var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+      chart.draw(data, options);
+    }
+
+    const home_btn=()=>{
+      window.open('http://127.0.0.1:5000/')}
+  
+      function history() {
+        alert("Please Scroll down to the end of the page to see audit");
+      }
+    </script>
+
+    <style>
+      table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+  }
+      .correctPad{
+        padding-right: 0px !important;
+        padding-left: 0px !important;
+      }
+  th, td {
+    padding: 5px;
+  }
+  th {
+    text-align: left;
+  }
+
+    </style>
+
+  </head>
+  <body>
+
+  
+  <button onclick="home_btn()" id = 'home'>Home</button>
+  <button onclick="history()" id = 'history_button'>Audit</button>
+  <button onclick="reset_button()" name="first" id="container">Reset Button</button>
+
+
+  <div id="curve_chart" style="width: 900px; height: 500px">hi there</div>
+    
+    <script>
+    var no_short= '{{shot_ak}}'
+    var in_circle = '{{circle}}'
+    var res_id = '{{resource_id}}'
+    var loopobj = {
+    no_short : no_short,
+    in_circle : in_circle
+    }
+  </script>
+  <div class="container" id="container_table">
+     <div class = "row">
+     <div class="col-sm-4 correctPad">
+   <table style="width:100%">
+    <tr>
+      <th>Date</th>
+    </tr>
+    {% for item in date %}
+    <tr class="test">
+      <td>{{item}}</td>
+      {% endfor %}
+    </tr>
+  </table>
+  </div>
+  <div class="col-sm-4 correctPad">
+    <table style="width:100%">
+      <tr>
+        <th>List 95 </th>
+      </tr>
+      {% for item in list_95 %}
+      <tr class="test">
+        <td>{{item}}</td>
+        {% endfor %}
+      </tr>
+  </table>
+</div>
+<div class="col-sm-4 correctPad">
+  <table style="width:100%">
+    <tr>
+      <th>list 99</th>
+    </tr>
+    {% for item in list_99 %}
+    <tr class="test">
+      <td>{{item}}</td>
+      {% endfor %}
+    </tr>
+  </table>
+</div>
+
+</div>
+</div>
+<script>
+  $(document).ready(function(){ $('#first').on('click', function(){$('.test').toggle();});});
+ 
+</script>
+<h1>Audit</h1>
+<p>
+    resource type: {{resource_type}}</br>
+    Number of Resources: {{resource_type2}}</br>
+    Min History: {{CC_MinHistory}}</br>
+    Shots: {{resource_type3}}</br>
+    Scale: {{resource_type4}}</br>
+    elpsed_time:{{elpsed_time}}</br>
+    Estimited Risk value of list 95: {{estimated_risk_val_95}}</br>
+    Estimited Risk value of list 99: {{estimated_risk_val_99}}
+</p>
+
+  </body>
+</html>
